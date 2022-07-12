@@ -1,5 +1,3 @@
-import $ from 'jquery'
-import _ from 'lodash'
 import initAcord from './initAcord.js'
 import initScroll from './initScroll.js'
 import initTabMenu from './InitTAb.js'
