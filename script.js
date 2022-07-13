@@ -1,5 +1,5 @@
+import ScrollSuave from './initScroll.js'
 import initAcord from './initAcord.js'
-import initScroll from './initScroll.js'
 import initTabMenu from './InitTAb.js'
 import initAnimationScroll from './scrollSuave.js'
 import initModal from './modal.js'
@@ -10,8 +10,9 @@ import funcionamentoEmpresa from './funcionamento.js'
 import initAnimaisFetch from './animaisfetch.js'
 import fetchBtc from './fetchbtc.js'
 
+const scrollsuave = new ScrollSuave('.js-nav a[href^="#"]')
+scrollsuave.init()
 initAcord()
-initScroll()
 initTabMenu()
 initAnimationScroll()
 initModal()

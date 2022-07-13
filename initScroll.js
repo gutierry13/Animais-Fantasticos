@@ -1,21 +1,29 @@
-export default function initScroll() {
-  const internalLink = document.querySelectorAll('.js-nav a[href^="#"]')
-  function scrollToSection(event) {
+export default class initScroll {
+  constructor(links, options) {
+    this.internalLink = document.querySelectorAll(links)
+    if (options === undefined) {
+      this.options = { behavior: 'smooth', block: 'start' }
+    } else {
+      this.options = options
+    }
+    this.scrollToSection = this.scrollToSection.bind(this)
+  }
+
+  scrollToSection(event) {
     event.preventDefault()
     const href = event.currentTarget.getAttribute('href')
     const section = document.querySelector(href)
-    section.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    })
-    // const topo = section.offsetTop
-    // window.scroll({
-    //   top: topo,
-    //   behavior: 'smooth'
-    // })
+    section.scrollIntoView(this.options)
   }
-  internalLink.forEach(link => {
-    link.addEventListener('click', scrollToSection)
-  })
+
+  addLinkEvent() {
+    this.internalLink.forEach(link => {
+      link.addEventListener('click', this.scrollToSection)
+    })
+  }
+
+  init() {
+    this.addLinkEvent()
+    return this
+  }
 }
-initScroll()
