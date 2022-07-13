@@ -1,16 +1,26 @@
-export default function initAcord() {
-  const questionItem = document.querySelectorAll('.js-acord dt')
-  const activeClass = 'active'
-  function activeArcord() {
-    this.classList.add(activeClass)
-    this.nextElementSibling.classList.toggle(activeClass)
+export default class Accordion {
+  constructor(list) {
+    this.questionItem = document.querySelectorAll(list)
+    this.activeClass = 'active'
   }
-  if (questionItem.length) {
-    questionItem[0].classList.add(activeClass)
-    questionItem[0].nextElementSibling.classList.add(activeClass)
-    questionItem.forEach(item => {
-      item.addEventListener('click', activeArcord)
+
+  toggleAcord(item) {
+    item.classList.add(this.activeClass)
+    item.nextElementSibling.classList.toggle(this.activeClass)
+  }
+
+  addAccordionEvent() {
+    this.questionItem.forEach(item => {
+      item.addEventListener('click', () => {
+        this.toggleAcord(item)
+      })
     })
   }
+
+  init() {
+    if (this.questionItem.length) {
+      this.toggleAcord(this.questionItem[0])
+      this.addAccordionEvent()
+    }
+  }
 }
-initAcord()
