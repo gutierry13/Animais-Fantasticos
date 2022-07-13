@@ -1,5 +1,5 @@
 import ScrollSuave from './initScroll.js'
-import initAcord from './initAcord.js'
+import Accordion from './initAcord.js'
 import initTabMenu from './InitTAb.js'
 import initAnimationScroll from './scrollSuave.js'
 import initModal from './modal.js'
@@ -12,7 +12,9 @@ import fetchBtc from './fetchbtc.js'
 
 const scrollsuave = new ScrollSuave('.js-nav a[href^="#"]')
 scrollsuave.init()
-initAcord()
+const accordion = new Accordion('.js-acord dt')
+accordion.init()
+
 initTabMenu()
 initAnimationScroll()
 initModal()
