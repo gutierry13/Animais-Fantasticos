@@ -22,5 +22,6 @@ export default class Accordion {
       this.toggleAcord(this.questionItem[0])
       this.addAccordionEvent()
     }
+    return this
   }
 }
