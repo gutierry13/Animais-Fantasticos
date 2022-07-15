@@ -2,8 +2,8 @@ import ScrollSuave from './initScroll.js'
 import Accordion from './initAcord.js'
 import TabNav from './InitTAb.js'
 import Modal from './modal.js'
+import ToolTip from './toolTip.js'
 import initAnimationScroll from './scrollSuave.js'
-import initToolTip from './toolTip.js'
 import initDropDown from './initdropdown.js'
 import mobileMenu from './mobilemenu.js'
 import funcionamentoEmpresa from './funcionamento.js'
@@ -22,9 +22,10 @@ const modal = new Modal(
   '[data-modal="container"]'
 )
 modal.init()
+const tooltip = new ToolTip('[data-tooltip=""]')
+tooltip.init()
 
 initAnimationScroll()
-initToolTip()
 initDropDown()
 mobileMenu()
 funcionamentoEmpresa()
