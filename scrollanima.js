@@ -2,25 +2,39 @@ export default class ScrollAnima {
   constructor(sections) {
     this.sections = document.querySelectorAll(sections)
     this.windowPath = window.innerHeight * 0.6
-    this.animationScroll = this.animationScroll.bind(this)
+    this.checkDistance = this.checkDistance.bind(this)
   }
 
-  animationScroll() {
-    this.sections.forEach(section => {
-      const sectionTop = section.getBoundingClientRect().top
-      const sectionVisible = sectionTop - this.windowPath < 0
-      if (sectionVisible) {
-        section.classList.add('scroll-animation')
-        // } else if (section.classList.contains('scroll-animation')) {
-        //   section.classList.remove('scroll-animation')
-      } else {
-        section.classList.remove('scroll-animation')
+  getDistance() {
+    this.distance = [...this.sections].map(section => {
+      const offset = section.offsetTop
+      return {
+        element: section,
+        offset: Math.floor(offset - this.windowPath)
+      }
+    })
+  }
+
+  checkDistance() {
+    this.distance.forEach(section => {
+      if (window.pageYOffset > section.offset) {
+        section.element.classList.add('scroll-animation')
+      } else if (section.element.classList.contains('scroll-animation')) {
+        section.element.classList.remove('scroll-animation')
       }
     })
   }
 
   init() {
-    this.animationScroll()
-    window.addEventListener('scroll', this.animationScroll)
+    if (this.sections.length) {
+      this.getDistance()
+      this.checkDistance()
+      window.addEventListener('scroll', this.checkDistance)
+    }
+    return this
+  }
+
+  stop() {
+    window.removeEventListener('scroll', this.checkDistance)
   }
 }

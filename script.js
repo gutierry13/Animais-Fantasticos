@@ -26,6 +26,7 @@ const tooltip = new ToolTip('[data-tooltip=""]')
 tooltip.init()
 fetchAnimais('./animisAPI.json', '.numeros-grid')
 fetchBtc('https://www.blockchain.com/pt/ticker', '.btc-preco')
+
 const scrollanima = new ScrollAnima('.js-scroll')
 scrollanima.init()
 
