@@ -1,4 +1,4 @@
-import animaNumeros from './animanumeros.js'
+import AnimaNumeros from './animanumeros.js'
 
 export default function initAnimaisFetch() {
   async function fetchAnimais(url) {
@@ -16,7 +16,12 @@ export default function initAnimaisFetch() {
 
       numerosGrid.appendChild(divAnimal)
     })
-    animaNumeros()
+    const animanumeros = new AnimaNumeros(
+      '[data-numero]',
+      'scroll-animation',
+      '.numeros-querySelector'
+    )
+    animanumeros.init()
   }
 
   fetchAnimais('./animisAPI.json')

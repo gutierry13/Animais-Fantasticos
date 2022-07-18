@@ -19,7 +19,6 @@ export default class ToolTip {
     } else {
       this.toolTipBox.style.left = `${event.pageX + 20}px`
     }
-    console.log(event.pageX + 650, window.innerWidth)
   }
 
   onMouseOver({ currentTarget }) {
