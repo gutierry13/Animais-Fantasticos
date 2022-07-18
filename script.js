@@ -5,7 +5,7 @@ import Modal from './modal.js'
 import ToolTip from './toolTip.js'
 import fetchAnimais from './animaisfetch.js'
 import fetchBtc from './fetchbtc.js'
-import initAnimationScroll from './scrollSuave.js'
+import ScrollAnima from './scrollanima.js'
 import initDropDown from './initdropdown.js'
 import mobileMenu from './mobilemenu.js'
 import funcionamentoEmpresa from './funcionamento.js'
@@ -26,8 +26,9 @@ const tooltip = new ToolTip('[data-tooltip=""]')
 tooltip.init()
 fetchAnimais('./animisAPI.json', '.numeros-grid')
 fetchBtc('https://www.blockchain.com/pt/ticker', '.btc-preco')
+const scrollanima = new ScrollAnima('.js-scroll')
+scrollanima.init()
 
-initAnimationScroll()
 initDropDown()
 mobileMenu()
 funcionamentoEmpresa()
