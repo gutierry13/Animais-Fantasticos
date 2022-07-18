@@ -4,11 +4,11 @@ import TabNav from './InitTAb.js'
 import Modal from './modal.js'
 import ToolTip from './toolTip.js'
 import fetchAnimais from './animaisfetch.js'
+import fetchBtc from './fetchbtc.js'
 import initAnimationScroll from './scrollSuave.js'
 import initDropDown from './initdropdown.js'
 import mobileMenu from './mobilemenu.js'
 import funcionamentoEmpresa from './funcionamento.js'
-import fetchBtc from './fetchbtc.js'
 
 const scrollsuave = new ScrollSuave('.js-nav a[href^="#"]')
 scrollsuave.init()
@@ -25,9 +25,9 @@ modal.init()
 const tooltip = new ToolTip('[data-tooltip=""]')
 tooltip.init()
 fetchAnimais('./animisAPI.json', '.numeros-grid')
+fetchBtc('https://www.blockchain.com/pt/ticker', '.btc-preco')
 
 initAnimationScroll()
 initDropDown()
 mobileMenu()
 funcionamentoEmpresa()
-fetchBtc()
