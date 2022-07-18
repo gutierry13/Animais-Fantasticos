@@ -1,8 +1,10 @@
+import debounce from './debounce.js'
+
 export default class ScrollAnima {
   constructor(sections) {
     this.sections = document.querySelectorAll(sections)
     this.windowPath = window.innerHeight * 0.6
-    this.checkDistance = this.checkDistance.bind(this)
+    this.checkDistance = debounce(this.checkDistance.bind(this), 50)
   }
 
   getDistance() {
@@ -17,6 +19,7 @@ export default class ScrollAnima {
 
   checkDistance() {
     this.distance.forEach(section => {
+      console.log('teste')
       if (window.pageYOffset > section.offset) {
         section.element.classList.add('scroll-animation')
       } else if (section.element.classList.contains('scroll-animation')) {
