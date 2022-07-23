@@ -9,6 +9,7 @@ import ScrollAnima from './scrollanima.js'
 import initDropDown from './initdropdown.js'
 import mobileMenu from './mobilemenu.js'
 import funcionamentoEmpresa from './funcionamento.js'
+import SlideNav from './slide.js'
 
 const scrollsuave = new ScrollSuave('.js-nav a[href^="#"]')
 scrollsuave.init()
@@ -29,7 +30,9 @@ fetchBtc('https://www.blockchain.com/pt/ticker', '.btc-preco')
 
 const scrollanima = new ScrollAnima('.js-scroll')
 scrollanima.init()
-
 initDropDown()
 mobileMenu()
 funcionamentoEmpresa()
+const slide = new SlideNav('.slide', '.slide-wrapper')
+slide.init()
+slide.addControl('.custom-control')
