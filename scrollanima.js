@@ -3,8 +3,8 @@ import debounce from './debounce.js'
 export default class ScrollAnima {
   constructor(sections) {
     this.sections = document.querySelectorAll(sections)
-    this.windowPath = window.innerHeight * 0.6
-    this.checkDistance = debounce(this.checkDistance.bind(this), 50)
+    this.windowPath = window.innerHeight * 0.8
+    this.checkDistance = debounce(this.checkDistance.bind(this), 20)
   }
 
   getDistance() {
